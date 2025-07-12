@@ -1,6 +1,6 @@
 {
   "description": "PokPay's PHP SDK for Checkout REST APIs",
-  "name": "rpay/pokpay-payments-sdk",
+  "name": "oriii92/php-sdk",
   "keywords": [
     "payments",
     "sdk",
@@ -20,6 +20,9 @@
     {
       "name": "RPay.ai",
       "homepage": "https://www.rpay.ai"
+    },
+    {
+      "name": "Orald Veizi"
     }
   ],
   "require": {
