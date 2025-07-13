@@ -47,34 +47,58 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     public const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SdkOrderProduct';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'quantity' => 'float',
-        'price' => 'float'
+        'id' => 'string',
+        'status' => 'string',
+        'description' => 'string',
+        'type' => 'string',
+        'isSelfAction' => 'bool',
+        'isLocked' => 'bool',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
+        'completedAt' => '\DateTime',
+        'initiatingAccountId' => 'string',
+        'receivingAccountId' => 'string',
+        '_qrData' => 'array<string,string>',
+        'receiverAmount' => 'float',
+        'receiverCurrencyCode' => 'string',
+        'exchangeRate' => 'float',
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      * @phpstan-var array<string, string|null>
-      * @psalm-var array<string, string|null>
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     * @phpstan-var array<string, string|null>
+     * @psalm-var array<string, string|null>
+     */
     protected static $openAPIFormats = [
-        'name' => null,
-        'quantity' => null,
-        'price' => null
+        'id' => null,
+        'status' => null,
+        'description' => null,
+        'type' => null,
+        'isSelfAction' => null,
+        'isLocked' => null,
+        'createdAt' => null,
+        'updatedAt' => null,
+        'completedAt' => null,
+        'initiatingAccountId' => null,
+        'receivingAccountId' => null,
+        '_qrData' => null,
+        'receiverAmount' => null,
+        'receiverCurrencyCode' => null,
+        'exchangeRate' => null,
     ];
 
     /**
@@ -104,9 +128,21 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'quantity' => 'quantity',
-        'price' => 'price'
+        'id' => 'id',
+        'status' => 'status',
+        'description' => 'description',
+        'type' => 'type',
+        'isSelfAction' => 'isSelfAction',
+        'isLocked' => 'isLocked',
+        'createdAt' => 'createdAt',
+        'updatedAt' => 'updatedAt',
+        'completedAt' => 'completedAt',
+        'initiatingAccountId' => 'initiatingAccountId',
+        'receivingAccountId' => 'receivingAccountId',
+        '_qrData' => 'qrData',
+        'receiverAmount' => 'receiverAmount',
+        'receiverCurrencyCode' => 'receiverCurrencyCode',
+        'exchangeRate' => 'exchangeRate',
     ];
 
     /**
@@ -115,9 +151,21 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'quantity' => 'setQuantity',
-        'price' => 'setPrice'
+        'id' => 'setId',
+        'status' => 'setStatus',
+        'description' => 'setDescription',
+        'type' => 'setType',
+        'isSelfAction' => 'setIsSelfAction',
+        'isLocked' => 'setIsLocked',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
+        'completedAt' => 'setCompletedAt',
+        'initiatingAccountId' => 'setInitiatingAccountId',
+        'receivingAccountId' => 'setReceivingAccountId',
+        '_qrData' => 'setQrData',
+        'receiverAmount' => 'setReceiverAmount',
+        'receiverCurrencyCode' => 'setReceiverCurrencyCode',
+        'exchangeRate' => 'setExchangeRate',
     ];
 
     /**
@@ -126,9 +174,21 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'quantity' => 'getQuantity',
-        'price' => 'getPrice'
+        'id' => 'getId',
+        'status' => 'getStatus',
+        'description' => 'getDescription',
+        'type' => 'getType',
+        'isSelfAction' => 'getIsSelfAction',
+        'isLocked' => 'getIsLocked',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
+        'completedAt' => 'getCompletedAt',
+        'initiatingAccountId' => 'getInitiatingAccountId',
+        'receivingAccountId' => 'getReceivingAccountId',
+        '_qrData' => 'getQrData',
+        'receiverAmount' => 'getReceiverAmount',
+        'receiverCurrencyCode' => 'getReceiverCurrencyCode',
+        'exchangeRate' => 'getExchangeRate',
     ];
 
     /**
@@ -188,9 +248,21 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['quantity'] = $data['quantity'] ?? null;
-        $this->container['price'] = $data['price'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['isSelfAction'] = $data['isSelfAction'] ?? null;
+        $this->container['isLocked'] = $data['isLocked'] ?? null;
+        $this->container['createdAt'] = $data['createdAt'] ?? null;
+        $this->container['updatedAt'] = $data['updatedAt'] ?? null;
+        $this->container['completedAt'] = $data['completedAt'] ?? null;
+        $this->container['initiatingAccountId'] = $data['initiatingAccountId'] ?? null;
+        $this->container['receivingAccountId'] = $data['receivingAccountId'] ?? null;
+        $this->container['_qrData'] = $data['_qrData'] ?? null;
+        $this->container['receiverAmount'] = $data['receiverAmount'] ?? null;
+        $this->container['receiverCurrencyCode'] = $data['receiverCurrencyCode'] ?? null;
+        $this->container['exchangeRate'] = $data['exchangeRate'] ?? null;
     }
 
     /**
@@ -202,15 +274,7 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['quantity'] === null) {
-            $invalidProperties[] = "'quantity' can't be null";
-        }
-        if ($this->container['price'] === null) {
-            $invalidProperties[] = "'price' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -226,77 +290,186 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
 
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
+    public function getId(): ?string
     {
-        return $this->container['name'];
+        return $this->container['id'];
     }
 
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
+    public function setId(?string $id): self
     {
-        $this->container['name'] = $name;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
-    /**
-     * Gets quantity
-     *
-     * @return float
-     */
-    public function getQuantity()
+    public function getStatus(): ?string
     {
-        return $this->container['quantity'];
+        return $this->container['status'];
     }
 
-    /**
-     * Sets quantity
-     *
-     * @param float $quantity quantity
-     *
-     * @return self
-     */
-    public function setQuantity($quantity)
+    public function setStatus(?string $status): self
     {
-        $this->container['quantity'] = $quantity;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
-    /**
-     * Gets price
-     *
-     * @return float
-     */
-    public function getPrice()
+    public function getDescription(): ?string
     {
-        return $this->container['price'];
+        return $this->container['description'];
     }
 
-    /**
-     * Sets price
-     *
-     * @param float $price price
-     *
-     * @return self
-     */
-    public function setPrice($price)
+    public function setDescription(?string $description): self
     {
-        $this->container['price'] = $price;
+        $this->container['description'] = $description;
 
         return $this;
     }
+
+    public function getType(): ?string
+    {
+        return $this->container['type'];
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    public function getIsSelfAction(): ?bool
+    {
+        return $this->container['isSelfAction'];
+    }
+
+    public function setIsSelfAction(?bool $isSelfAction): self
+    {
+        $this->container['isSelfAction'] = $isSelfAction;
+
+        return $this;
+    }
+
+    public function getIsLocked(): ?bool
+    {
+        return $this->container['isLocked'];
+    }
+
+    public function setIsLocked(?bool $isLocked): self
+    {
+        $this->container['isLocked'] = $isLocked;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTime
+    {
+        return $this->container['createdAt'];
+    }
+
+    public function setCreatedAt(?\DateTime $createdAt): self
+    {
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTime
+    {
+        return $this->container['updatedAt'];
+    }
+
+    public function setUpdatedAt(?\DateTime $updatedAt): self
+    {
+        $this->container['updatedAt'] = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCompletedAt(): ?\DateTime
+    {
+        return $this->container['completedAt'];
+    }
+
+    public function setCompletedAt(?\DateTime $completedAt): self
+    {
+        $this->container['completedAt'] = $completedAt;
+
+        return $this;
+    }
+
+    public function getInitiatingAccountId(): ?string
+    {
+        return $this->container['initiatingAccountId'];
+    }
+
+    public function setInitiatingAccountId(?string $initiatingAccountId): self
+    {
+        $this->container['initiatingAccountId'] = $initiatingAccountId;
+
+        return $this;
+    }
+
+    public function getReceivingAccountId(): ?string
+    {
+        return $this->container['receivingAccountId'];
+    }
+
+    public function setReceivingAccountId(?string $receivingAccountId): self
+    {
+        $this->container['receivingAccountId'] = $receivingAccountId;
+
+        return $this;
+    }
+
+    public function getQrData(): ?array
+    {
+        return $this->container['_qrData'];
+    }
+
+    public function setQrData(?array $qrData): self
+    {
+        $this->container['_qrData'] = $qrData;
+
+        return $this;
+    }
+
+    public function getReceiverAmount(): ?float
+    {
+        return $this->container['receiverAmount'];
+    }
+
+    public function setReceiverAmount(?float $receiverAmount): self
+    {
+        $this->container['receiverAmount'] = $receiverAmount;
+
+        return $this;
+    }
+
+    public function getReceiverCurrencyCode(): ?string
+    {
+        return $this->container['receiverCurrencyCode'];
+    }
+
+    public function setReceiverCurrencyCode(?string $receiverCurrencyCode): self
+    {
+        $this->container['receiverCurrencyCode'] = $receiverCurrencyCode;
+
+        return $this;
+    }
+
+    public function getExchangeRate(): ?float
+    {
+        return $this->container['exchangeRate'];
+    }
+
+    public function setExchangeRate(?float $exchangeRate): self
+    {
+        $this->container['exchangeRate'] = $exchangeRate;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -325,7 +498,7 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      * Sets value based on offset.
      *
      * @param int|null $offset Offset
-     * @param mixed    $value  Value to be set
+     * @param mixed $value Value to be set
      *
      * @return void
      */
@@ -359,7 +532,7 @@ class TransactionOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function jsonSerialize()
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

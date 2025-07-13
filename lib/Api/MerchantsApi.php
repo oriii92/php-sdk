@@ -36,6 +36,7 @@ use GuzzleHttp\RequestOptions;
 use RPay\POK\PaymentsSdk\ApiException;
 use RPay\POK\PaymentsSdk\Configuration;
 use RPay\POK\PaymentsSdk\HeaderSelector;
+use RPay\POK\PaymentsSdk\Model\MerchantOrderResponse;
 use RPay\POK\PaymentsSdk\ObjectSerializer;
 
 /**
@@ -662,7 +663,7 @@ class MerchantsApi
             $body = (string)$response->getBody();
 
             return [
-                ObjectSerializer::deserialize($body, '\RPay\POK\PaymentsSdk\Model\SdkOrderResponse', []),
+                ObjectSerializer::deserialize($body, MerchantOrderResponse::class, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
@@ -671,7 +672,7 @@ class MerchantsApi
             if ($e->getCode() === 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\RPay\POK\PaymentsSdk\Model\SdkOrderResponse',
+                    MerchantOrderResponse::class,
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);

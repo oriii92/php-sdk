@@ -72,10 +72,35 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => 'string',
         'merchantCustomReference' => 'string',
         'merchant' => '\RPay\POK\PaymentsSdk\Model\Merchant',
-        'self' => '\RPay\POK\PaymentsSdk\Model\MerchantOrderSelf',
+        '_self' => 'array',
         'paymentMethod' => 'string',
         'transaction_id' => 'string',
         'transaction' => '\RPay\POK\PaymentsSdk\Model\TransactionOrder',
+        'capturedSplitWithAmount' => 'float',
+        'originalCurrencyCode' => 'string',
+        'originalAmount' => 'float',
+        'appliedExchangeRate' => 'float',
+        'description' => 'string',
+        'isCompleted' => 'bool',
+        'isRefunded' => 'bool',
+        'user' => 'array',
+        'sdkOrderPaymentFlows' => 'array',
+        'issuer' => 'string',
+        'selectedBranchId' => 'string',
+        'hasFailedPaymentFlow' => 'bool',
+        'isConfirmed' => 'bool',
+        'isCaptured' => 'bool',
+        'isCanceled' => 'bool',
+        'canBeCaptured' => 'bool',
+        'deeplink' => 'string',
+        'webhookUrl' => 'string',
+        'autoCapture' => 'bool',
+        'splitWithAmount' => 'float',
+        'isMarketplace' => 'bool',
+        'isRefundable' => 'bool',
+        'isDisputed' => 'bool',
+        'refundableAmount' => 'float',
+
     ];
 
     /**
@@ -99,10 +124,34 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => null,
         'merchantCustomReference' => null,
         'merchant' => null,
-        'self' => null,
+        '_self' => null,
         'paymentMethod' => null,
         'transaction_id' => null,
         'transaction' => null,
+        'capturedSplitWithAmount' => null,
+        'originalCurrencyCode' => null,
+        'originalAmount' => null,
+        'appliedExchangeRate' => null,
+        'description' => null,
+        'isCompleted' => null,
+        'isRefunded' => null,
+        'user' => null,
+        'sdkOrderPaymentFlows' => null,
+        'issuer' => null,
+        'selectedBranchId' => null,
+        'hasFailedPaymentFlow' => null,
+        'isConfirmed' => null,
+        'isCaptured' => null,
+        'isCanceled' => null,
+        'canBeCaptured' => null,
+        'deeplink' => null,
+        'webhookUrl' => null,
+        'autoCapture' => null,
+        'splitWithAmount' => null,
+        'isMarketplace' => null,
+        'isRefundable' => null,
+        'isDisputed' => null,
+        'refundableAmount' => null,
     ];
 
     /**
@@ -145,10 +194,34 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => 'failRedirectUrl',
         'merchantCustomReference' => 'merchantCustomReference',
         'merchant' => 'merchant',
-        'self' => '_self',
+        '_self' => '_self',
         'paymentMethod' => 'paymentMethod',
         'transaction_id' => 'transactionId',
         'transaction' => 'transaction',
+        'capturedSplitWithAmount' => 'capturedSplitWithAmount',
+        'originalCurrencyCode' => 'originalCurrencyCode',
+        'originalAmount' => 'originalAmount',
+        'appliedExchangeRate' => 'appliedExchangeRate',
+        'description' => 'description',
+        'isCompleted' => 'isCompleted',
+        'isRefunded' => 'isRefunded',
+        'user' => 'user',
+        'sdkOrderPaymentFlows' => 'sdkOrderPaymentFlows',
+        'issuer' => 'issuer',
+        'selectedBranchId' => 'selectedBranchId',
+        'hasFailedPaymentFlow' => 'hasFailedPaymentFlow',
+        'isConfirmed' => 'isConfirmed',
+        'isCaptured' => 'isCaptured',
+        'isCanceled' => 'isCanceled',
+        'canBeCaptured' => 'canBeCaptured',
+        'deeplink' => 'deeplink',
+        'webhookUrl' => 'webhookUrl',
+        'autoCapture' => 'autoCapture',
+        'splitWithAmount' => 'splitWithAmount',
+        'isMarketplace' => 'isMarketplace',
+        'isRefundable' => 'isRefundable',
+        'isDisputed' => 'isDisputed',
+        'refundableAmount' => 'refundableAmount',
     ];
 
     /**
@@ -170,9 +243,34 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => 'setFailRedirectUrl',
         'merchantCustomReference' => 'setMerchantCustomReference',
         'merchant' => 'setMerchant',
-        'self' => 'setSelf',
+        '_self' => 'setSelf',
         'transaction_id' => 'setTransactionId',
         'transaction' => 'setTransaction',
+        'paymentMethod' => 'setPaymentMethod',
+        'capturedSplitWithAmount' => 'setCapturedSplitWithAmount',
+        'originalCurrencyCode' => 'setOriginalCurrencyCode',
+        'originalAmount' => 'setOriginalAmount',
+        'appliedExchangeRate' => 'setAppliedExchangeRate',
+        'description' => 'setDescription',
+        'isCompleted' => 'setIsCompleted',
+        'isRefunded' => 'setIsRefunded',
+        'user' => 'setUser',
+        'sdkOrderPaymentFlows' => 'setSdkOrderPaymentFlows',
+        'issuer' => 'setIssuer',
+        'selectedBranchId' => 'setSelectedBranchId',
+        'hasFailedPaymentFlow' => 'setHasFailedPaymentFlow',
+        'isConfirmed' => 'setIsConfirmed',
+        'isCaptured' => 'setIsCaptured',
+        'isCanceled' => 'setIsCanceled',
+        'canBeCaptured' => 'setCanBeCaptured',
+        'deeplink' => 'setDeeplink',
+        'webhookUrl' => 'setWebhookUrl',
+        'autoCapture' => 'setAutoCapture',
+        'splitWithAmount' => 'setSplitWithAmount',
+        'isMarketplace' => 'setIsMarketplace',
+        'isRefundable' => 'setIsRefundable',
+        'isDisputed' => 'setIsDisputed',
+        'refundableAmount' => 'setRefundableAmount',
     ];
 
     /**
@@ -194,10 +292,34 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => 'getFailRedirectUrl',
         'merchantCustomReference' => 'getMerchantCustomReference',
         'merchant' => 'getMerchant',
-        'self' => 'getSelf',
+        '_self' => 'getSelf',
         'paymentMethod' => 'getPaymentMethod',
         'transaction_id' => 'getTransactionId',
         'transaction' => 'getTransaction',
+        'capturedSplitWithAmount' => 'getCapturedSplitWithAmount',
+        'originalCurrencyCode' => 'getOriginalCurrencyCode',
+        'originalAmount' => 'getOriginalAmount',
+        'appliedExchangeRate' => 'getAppliedExchangeRate',
+        'description' => 'getDescription',
+        'isCompleted' => 'getIsCompleted',
+        'isRefunded' => 'getIsRefunded',
+        'user' => 'getUser',
+        'sdkOrderPaymentFlows' => 'getSdkOrderPaymentFlows',
+        'issuer' => 'getIssuer',
+        'selectedBranchId' => 'getSelectedBranchId',
+        'hasFailedPaymentFlow' => 'getHasFailedPaymentFlow',
+        'isConfirmed' => 'getIsConfirmed',
+        'isCaptured' => 'getIsCaptured',
+        'isCanceled' => 'getIsCanceled',
+        'canBeCaptured' => 'getCanBeCaptured',
+        'deeplink' => 'getDeeplink',
+        'webhookUrl' => 'getWebhookUrl',
+        'autoCapture' => 'getAutoCapture',
+        'splitWithAmount' => 'getSplitWithAmount',
+        'isMarketplace' => 'getIsMarketplace',
+        'isRefundable' => 'getIsRefundable',
+        'isDisputed' => 'getIsDisputed',
+        'refundableAmount' => 'getRefundableAmount',
     ];
 
     /**
@@ -270,10 +392,35 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['failRedirectUrl'] = $data['failRedirectUrl'] ?? null;
         $this->container['merchantCustomReference'] = $data['merchantCustomReference'] ?? null;
         $this->container['merchant'] = $data['merchant'] ?? null;
-        $this->container['self'] = $data['self'] ?? null;
+        $this->container['_self'] = $data['_self'] ?? null;
         $this->container['transaction_id'] = $data['transaction_id'] ?? null;
         $this->container['transaction'] = $data['transaction'] ?? null;
         $this->container['paymentMethod'] = $data['paymentMethod'] ?? null;
+        $this->container['capturedSplitWithAmount'] = $data['capturedSplitWithAmount'] ?? null;
+        $this->container['originalCurrencyCode'] = $data['originalCurrencyCode'] ?? null;
+        $this->container['originalAmount'] = $data['originalAmount'] ?? null;
+        $this->container['appliedExchangeRate'] = $data['appliedExchangeRate'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['isCompleted'] = $data['isCompleted'] ?? null;
+        $this->container['isRefunded'] = $data['isRefunded'] ?? null;
+        $this->container['user'] = $data['user'] ?? null;
+        $this->container['sdkOrderPaymentFlows'] = $data['sdkOrderPaymentFlows'] ?? null;
+        $this->container['issuer'] = $data['issuer'] ?? null;
+        $this->container['selectedBranchId'] = $data['selectedBranchId'] ?? null;
+        $this->container['hasFailedPaymentFlow'] = $data['hasFailedPaymentFlow'] ?? null;
+        $this->container['isConfirmed'] = $data['isConfirmed'] ?? null;
+        $this->container['isCaptured'] = $data['isCaptured'] ?? null;
+        $this->container['isCanceled'] = $data['isCanceled'] ?? null;
+        $this->container['canBeCaptured'] = $data['canBeCaptured'] ?? null;
+        $this->container['deeplink'] = $data['deeplink'] ?? null;
+        $this->container['webhookUrl'] = $data['webhookUrl'] ?? null;
+        $this->container['autoCapture'] = $data['autoCapture'] ?? null;
+        $this->container['splitWithAmount'] = $data['splitWithAmount'] ?? null;
+        $this->container['isMarketplace'] = $data['isMarketplace'] ?? null;
+        $this->container['isRefundable'] = $data['isRefundable'] ?? null;
+        $this->container['isDisputed'] = $data['isDisputed'] ?? null;
+        $this->container['refundableAmount'] = $data['refundableAmount'] ?? null;
+
     }
 
     /**
@@ -671,7 +818,7 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return $this->container['transaction_id'];
     }
 
-    public function setTransactionId(?string  $transactionId): self
+    public function setTransactionId(?string $transactionId): self
     {
         $this->container['transaction_id'] = $transactionId;
 
@@ -683,29 +830,301 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return $this->container['transaction'];
     }
 
+    public function setTransaction(?TransactionOrder $transaction): self
+    {
+        $this->container['transaction'] = $transaction;
+
+        return $this;
+    }
+
     /**
      * Gets self
      *
-     * @return ?self
+     * @return ?array
      */
-    public function getSelf(): ?self
+    public function getSelf(): ?array
     {
-        return $this->container['self'];
+        return $this->container['_self'];
     }
 
     /**
      * Sets self
      *
      *
-     * @param MerchantOrder|null $self
+     * @param ?array $self
      * @return self
      */
-    public function setSelf(?self $self): self
+    public function setSelf(?array $self): self
     {
-        $this->container['self'] = $self;
+        $this->container['_self'] = $self;
 
         return $this;
     }
+
+    public function getCapturedSplitWithAmount()
+    {
+        return $this->container['capturedSplitWithAmount'];
+    }
+
+    public function setCapturedSplitWithAmount($capturedSplitWithAmount): self
+    {
+        $this->container['capturedSplitWithAmount'] = $capturedSplitWithAmount;
+        return $this;
+    }
+
+    public function getOriginalCurrencyCode()
+    {
+        return $this->container['originalCurrencyCode'];
+    }
+
+    public function setOriginalCurrencyCode($originalCurrencyCode): self
+    {
+        $this->container['originalCurrencyCode'] = $originalCurrencyCode;
+        return $this;
+    }
+
+    public function getOriginalAmount()
+    {
+        return $this->container['originalAmount'];
+    }
+
+    public function setOriginalAmount($originalAmount): self
+    {
+        $this->container['originalAmount'] = $originalAmount;
+        return $this;
+    }
+
+    public function getAppliedExchangeRate()
+    {
+        return $this->container['appliedExchangeRate'];
+    }
+
+    public function setAppliedExchangeRate($appliedExchangeRate): self
+    {
+        $this->container['appliedExchangeRate'] = $appliedExchangeRate;
+        return $this;
+    }
+
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    public function setDescription($description): self
+    {
+        $this->container['description'] = $description;
+        return $this;
+    }
+
+    public function getIsCompleted()
+    {
+        return $this->container['isCompleted'];
+    }
+
+    public function setIsCompleted($isCompleted): self
+    {
+        $this->container['isCompleted'] = $isCompleted;
+        return $this;
+    }
+
+    public function getIsRefunded()
+    {
+        return $this->container['isRefunded'];
+    }
+
+    public function setIsRefunded($isRefunded): self
+    {
+        $this->container['isRefunded'] = $isRefunded;
+        return $this;
+    }
+
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    public function setUser($user): self
+    {
+        $this->container['user'] = $user;
+        return $this;
+    }
+
+    public function getSdkOrderPaymentFlows()
+    {
+        return $this->container['sdkOrderPaymentFlows'];
+    }
+
+    public function setSdkOrderPaymentFlows($sdkOrderPaymentFlows): self
+    {
+        $this->container['sdkOrderPaymentFlows'] = json_decode(json_encode($sdkOrderPaymentFlows), true);
+        return $this;
+    }
+
+    public function getIssuer()
+    {
+        return $this->container['issuer'];
+    }
+
+    public function setIssuer($issuer): self
+    {
+        $this->container['issuer'] = $issuer;
+        return $this;
+    }
+
+    public function getSelectedBranchId()
+    {
+        return $this->container['selectedBranchId'];
+    }
+
+    public function setSelectedBranchId($selectedBranchId): self
+    {
+        $this->container['selectedBranchId'] = $selectedBranchId;
+        return $this;
+    }
+
+    public function getHasFailedPaymentFlow()
+    {
+        return $this->container['hasFailedPaymentFlow'];
+    }
+
+    public function setHasFailedPaymentFlow($hasFailedPaymentFlow): self
+    {
+        $this->container['hasFailedPaymentFlow'] = $hasFailedPaymentFlow;
+        return $this;
+    }
+
+    public function getIsConfirmed()
+    {
+        return $this->container['isConfirmed'];
+    }
+
+    public function setIsConfirmed($isConfirmed): self
+    {
+        $this->container['isConfirmed'] = $isConfirmed;
+        return $this;
+    }
+
+    public function getIsCaptured()
+    {
+        return $this->container['isCaptured'];
+    }
+
+    public function setIsCaptured($isCaptured): self
+    {
+        $this->container['isCaptured'] = $isCaptured;
+        return $this;
+    }
+
+    public function getIsCanceled()
+    {
+        return $this->container['isCanceled'];
+    }
+
+    public function setIsCanceled($isCanceled): self
+    {
+        $this->container['isCanceled'] = $isCanceled;
+        return $this;
+    }
+
+    public function getCanBeCaptured()
+    {
+        return $this->container['canBeCaptured'];
+    }
+
+    public function setCanBeCaptured($canBeCaptured): self
+    {
+        $this->container['canBeCaptured'] = $canBeCaptured;
+        return $this;
+    }
+
+    public function getDeeplink()
+    {
+        return $this->container['deeplink'];
+    }
+
+    public function setDeeplink($deeplink): self
+    {
+        $this->container['deeplink'] = $deeplink;
+        return $this;
+    }
+
+    public function getWebhookUrl()
+    {
+        return $this->container['webhookUrl'];
+    }
+
+    public function setWebhookUrl($webhookUrl): self
+    {
+        $this->container['webhookUrl'] = $webhookUrl;
+        return $this;
+    }
+
+    public function getAutoCapture()
+    {
+        return $this->container['autoCapture'];
+    }
+
+    public function setAutoCapture($autoCapture): self
+    {
+        $this->container['autoCapture'] = $autoCapture;
+        return $this;
+    }
+
+    public function getSplitWithAmount()
+    {
+        return $this->container['splitWithAmount'];
+    }
+
+    public function setSplitWithAmount($splitWithAmount): self
+    {
+        $this->container['splitWithAmount'] = $splitWithAmount;
+        return $this;
+    }
+
+    public function getIsMarketplace()
+    {
+        return $this->container['isMarketplace'];
+    }
+
+    public function setIsMarketplace($isMarketplace): self
+    {
+        $this->container['isMarketplace'] = $isMarketplace;
+        return $this;
+    }
+
+    public function getIsRefundable()
+    {
+        return $this->container['isRefundable'];
+    }
+
+    public function setIsRefundable($isRefundable): self
+    {
+        $this->container['isRefundable'] = $isRefundable;
+        return $this;
+    }
+
+    public function getIsDisputed()
+    {
+        return $this->container['isDisputed'];
+    }
+
+    public function setIsDisputed($isDisputed): self
+    {
+        $this->container['isDisputed'] = $isDisputed;
+        return $this;
+    }
+
+    public function getRefundableAmount()
+    {
+        return $this->container['refundableAmount'];
+    }
+
+    public function setRefundableAmount($refundableAmount): self
+    {
+        $this->container['refundableAmount'] = $refundableAmount;
+        return $this;
+    }
+
 
     /**
      * Returns true if offset exists. False otherwise.
@@ -794,6 +1213,30 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    public function isPaidSuccessfully(): bool
+    {
+        return
+            $this->getIsCompleted() === true &&
+            $this->getIsConfirmed() === true &&
+            $this->getIsCaptured() === true &&
+            $this->getIsCanceled() === false &&
+            $this->getIsRefunded() === false &&
+            $this->getTransaction()?->getStatus() === 'confirmed';
+    }
+
+    public function isPaymentFailed(): bool
+    {
+        return $this->getIsCompleted() &&
+            (
+                !$this->getIsCaptured() ||
+                !$this->getIsConfirmed() ||
+                $this->getHasFailedPaymentFlow()
+            );
+    }
+
+    public function toArray(): array
+    {
+        return json_decode($this->toHeaderValue(), true);
+    }
 }
-
-
