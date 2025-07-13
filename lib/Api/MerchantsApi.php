@@ -70,16 +70,16 @@ class MerchantsApi
 
     /**
      * Id of the logged in merchant
-     * @var string  
+     * @var string
      */
     protected $merchantId;
 
     /**
-     * @param string          $merchantId id of the logged in merchant
-     * @param Configuration   $config Configuration
+     * @param string $merchantId id of the logged in merchant
+     * @param Configuration $config Configuration
      * @param ClientInterface $client
-     * @param HeaderSelector  $selector
-     * @param int             $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
+     * @param HeaderSelector $selector
+     * @param int $hostIndex (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
         $merchantId,
@@ -87,7 +87,8 @@ class MerchantsApi
         ClientInterface $client = null,
         HeaderSelector $selector = null,
         $hostIndex = 0
-    ) {
+    )
+    {
         $this->client = $client ?: new Client();
         $this->config = $config ?: Configuration::getDefaultConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
@@ -128,12 +129,12 @@ class MerchantsApi
      *
      * Capture an sdk order
      *
-     * @param  string $sdkOrderId sdkOrderId (required)
-     * @param  float $amount amount (required)
+     * @param string $sdkOrderId sdkOrderId (required)
+     * @param float $amount amount (required)
      *
-     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \RPay\POK\PaymentsSdk\Model\SdkOrderResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse
+     * @throws \InvalidArgumentException
+     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
      */
     public function captureOrder($sdkOrderId, $amount)
     {
@@ -146,13 +147,13 @@ class MerchantsApi
      *
      * Capture an sdk order
      *
-     * @param  string $merchantId (required)
-     * @param  string $sdkOrderId (required)
-     * @param  float $amount (required)
+     * @param string $merchantId (required)
+     * @param string $sdkOrderId (required)
+     * @param float $amount (required)
      *
-     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \RPay\POK\PaymentsSdk\Model\SdkOrderResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \InvalidArgumentException
+     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
      */
     public function captureOrderWithHttpInfo($merchantId, $sdkOrderId, $amount)
     {
@@ -165,9 +166,9 @@ class MerchantsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             }
 
@@ -178,20 +179,20 @@ class MerchantsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\RPay\POK\PaymentsSdk\Model\SdkOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -203,7 +204,7 @@ class MerchantsApi
                     if ('\RPay\POK\PaymentsSdk\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -215,7 +216,7 @@ class MerchantsApi
                     if ('\RPay\POK\PaymentsSdk\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -227,7 +228,7 @@ class MerchantsApi
                     if ('\RPay\POK\PaymentsSdk\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -241,7 +242,7 @@ class MerchantsApi
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
             }
 
             return [
@@ -294,11 +295,11 @@ class MerchantsApi
      *
      * Capture an sdk order
      *
-     * @param  string $merchantId (required)
-     * @param  string $sdkOrderId (required)
+     * @param string $merchantId (required)
+     * @param string $sdkOrderId (required)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws \InvalidArgumentException
      */
     public function captureOrderAsync($merchantId, $sdkOrderId)
     {
@@ -315,11 +316,11 @@ class MerchantsApi
      *
      * Capture an sdk order
      *
-     * @param  string $merchantId (required)
-     * @param  string $sdkOrderId (required)
+     * @param string $merchantId (required)
+     * @param string $sdkOrderId (required)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws \InvalidArgumentException
      */
     public function captureOrderAsyncWithHttpInfo($merchantId, $sdkOrderId)
     {
@@ -333,7 +334,7 @@ class MerchantsApi
                     if ($returnType === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -353,7 +354,7 @@ class MerchantsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -362,12 +363,12 @@ class MerchantsApi
     /**
      * Create request for operation 'captureOrder'
      *
-     * @param  string $merchantId (required)
-     * @param  string $sdkOrderId (required)
-     * @param  float $amount     (required)
+     * @param string $merchantId (required)
+     * @param string $sdkOrderId (required)
+     * @param float $amount (required)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @throws \InvalidArgumentException
      */
     public function captureOrderRequest($merchantId, $sdkOrderId, $amount)
     {
@@ -488,11 +489,11 @@ class MerchantsApi
      *
      * Create an sdk api order
      *
-     * @param  \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body body (optional)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body body (optional)
      *
-     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return \RPay\POK\PaymentsSdk\Model\SdkOrderResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse
+     * @throws \InvalidArgumentException
+     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
      */
     public function createOrder($body = null)
     {
@@ -505,12 +506,12 @@ class MerchantsApi
      *
      * Create an sdk api order
      *
-     * @param  string $merchantId (required)
-     * @param  \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
+     * @param string $merchantId (required)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
      *
-     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
      * @return array of \RPay\POK\PaymentsSdk\Model\SdkOrderResponse|\RPay\POK\PaymentsSdk\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @throws \InvalidArgumentException
+     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
      */
     public function createOrderWithHttpInfo($merchantId, $body = null)
     {
@@ -523,9 +524,9 @@ class MerchantsApi
             } catch (RequestException $e) {
                 throw new ApiException(
                     "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
+                    (int)$e->getCode(),
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
                 );
             }
 
@@ -536,20 +537,20 @@ class MerchantsApi
                     sprintf(
                         '[%d] Error connecting to the API (%s)',
                         $statusCode,
-                        (string) $request->getUri()
+                        (string)$request->getUri()
                     ),
                     $statusCode,
                     $response->getHeaders(),
-                    (string) $response->getBody()
+                    (string)$response->getBody()
                 );
             }
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     if ('\RPay\POK\PaymentsSdk\Model\SdkOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -561,7 +562,7 @@ class MerchantsApi
                     if ('\RPay\POK\PaymentsSdk\Model\ErrorResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -575,7 +576,7 @@ class MerchantsApi
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $response->getBody();
+                $content = (string)$response->getBody();
             }
 
             return [
@@ -607,16 +608,89 @@ class MerchantsApi
         }
     }
 
+
+    public function getMerchantSdkOrderById($sdkOrderId, $loadTransaction = false)
+    {
+        list($response) = $this->getMerchantSdkOrderByIdWithHttpInfo($this->merchantId, $sdkOrderId, $loadTransaction);
+        return $response;
+    }
+
+    /**
+     * Operation getMerchantSdkOrderByIdWithHttpInfo
+     *
+     * Get an sdk order for a merchant by ID, optionally loading transaction data
+     *
+     * @param string $sdkOrderId (required)
+     * @param bool $loadTransaction (optional, default false)
+     *
+     * @return array of \RPay\POK\PaymentsSdk\Model\SdkOrderResponse, HTTP status code, HTTP response headers
+     * @throws \InvalidArgumentException
+     * @throws \RPay\POK\PaymentsSdk\ApiException on non-2xx response
+     */
+    public function getMerchantSdkOrderByIdWithHttpInfo($merchantId, $sdkOrderId, $loadTransaction = false)
+    {
+        $request = $this->createGetOrderRequest($merchantId, $sdkOrderId, $loadTransaction);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int)$e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string)$e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string)$request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string)$response->getBody()
+                );
+            }
+
+            $body = (string)$response->getBody();
+
+            return [
+                ObjectSerializer::deserialize($body, '\RPay\POK\PaymentsSdk\Model\SdkOrderResponse', []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            if ($e->getCode() === 200) {
+                $data = ObjectSerializer::deserialize(
+                    $e->getResponseBody(),
+                    '\RPay\POK\PaymentsSdk\Model\SdkOrderResponse',
+                    $e->getResponseHeaders()
+                );
+                $e->setResponseObject($data);
+            }
+            throw $e;
+        }
+    }
+
+
     /**
      * Operation createOrderAsync
      *
      * Create an sdk api order
      *
-     * @param  string $merchantId (required)
-     * @param  \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
+     * @param string $merchantId (required)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws \InvalidArgumentException
      */
     public function createOrderAsync($merchantId, $body = null)
     {
@@ -633,11 +707,11 @@ class MerchantsApi
      *
      * Create an sdk api order
      *
-     * @param  string $merchantId (required)
-     * @param  \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
+     * @param string $merchantId (required)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @throws \InvalidArgumentException
      */
     public function createOrderAsyncWithHttpInfo($merchantId, $body = null)
     {
@@ -651,7 +725,7 @@ class MerchantsApi
                     if ($returnType === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $response->getBody();
+                        $content = (string)$response->getBody();
                     }
 
                     return [
@@ -671,7 +745,7 @@ class MerchantsApi
                         ),
                         $statusCode,
                         $response->getHeaders(),
-                        (string) $response->getBody()
+                        (string)$response->getBody()
                     );
                 }
             );
@@ -680,11 +754,11 @@ class MerchantsApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param  string $merchantId (required)
-     * @param  \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
+     * @param string $merchantId (required)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
      *
-     * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @throws \InvalidArgumentException
      */
     public function createOrderRequest($merchantId, $body = null)
     {
@@ -701,7 +775,6 @@ class MerchantsApi
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
 
 
         // path params
@@ -783,10 +856,116 @@ class MerchantsApi
     }
 
     /**
+     * Create request for operation 'createOrder'
+     *
+     * @param string $merchantId (required)
+     * @param \RPay\POK\PaymentsSdk\Model\CreateSdkOrderPayload $body (optional)
+     *
+     * @return \GuzzleHttp\Psr7\Request
+     * @throws \InvalidArgumentException
+     */
+    public function createGetOrderRequest(string $merchantId, string $orderId, bool $loadTransaction = false)
+    {
+        // verify the required parameter 'merchantId' is set
+        if ($merchantId === null || (is_array($merchantId) && count($merchantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $merchantId when calling createOrder'
+            );
+        }
+
+        $resourcePath = '/merchants/{merchantId}/sdk-orders/{orderId}';
+        $formParams = [];
+        $headerParams = [];
+        $queryParams = ['loadTransaction' => $loadTransaction ? 'true' : 'false'];
+        $httpBody = '';
+        $multipart = false;
+
+        $resourcePath = str_replace(
+            [
+                '{' . 'merchantId' . '}',
+                '{' . 'orderId' . '}',
+            ],
+            [
+                ObjectSerializer::toPathValue($merchantId),
+                ObjectSerializer::toPathValue($orderId),
+            ],
+            $resourcePath
+        );
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['*/*']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['*/*'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Create http client option
      *
-     * @throws \RuntimeException on file opening failure
      * @return array of http client options
+     * @throws \RuntimeException on file opening failure
      */
     protected function createHttpClientOption()
     {

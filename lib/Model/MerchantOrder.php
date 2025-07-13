@@ -42,7 +42,7 @@ use \RPay\POK\PaymentsSdk\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
+class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'SdkOrder';
+    protected static $openAPIModelName = 'MerchantOrder';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -72,8 +72,10 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'failRedirectUrl' => 'string',
         'merchantCustomReference' => 'string',
         'merchant' => '\RPay\POK\PaymentsSdk\Model\Merchant',
-        'self' => '\RPay\POK\PaymentsSdk\Model\SdkOrderSelf',
+        'self' => '\RPay\POK\PaymentsSdk\Model\MerchantOrderSelf',
         'paymentMethod' => 'string',
+        'transaction_id' => 'string',
+        'transaction' => '\RPay\POK\PaymentsSdk\Model\TransactionOrder',
     ];
 
     /**
@@ -99,6 +101,8 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => null,
         'self' => null,
         'paymentMethod' => null,
+        'transaction_id' => null,
+        'transaction' => null,
     ];
 
     /**
@@ -143,6 +147,8 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => 'merchant',
         'self' => '_self',
         'paymentMethod' => 'paymentMethod',
+        'transaction_id' => 'transactionId',
+        'transaction' => 'transaction',
     ];
 
     /**
@@ -165,6 +171,8 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchantCustomReference' => 'setMerchantCustomReference',
         'merchant' => 'setMerchant',
         'self' => 'setSelf',
+        'transaction_id' => 'setTransactionId',
+        'transaction' => 'setTransaction',
     ];
 
     /**
@@ -188,6 +196,8 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchant' => 'getMerchant',
         'self' => 'getSelf',
         'paymentMethod' => 'getPaymentMethod',
+        'transaction_id' => 'getTransactionId',
+        'transaction' => 'getTransaction',
     ];
 
     /**
@@ -196,7 +206,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function attributeMap()
+    public static function attributeMap(): array
     {
         return self::$attributeMap;
     }
@@ -206,7 +216,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function setters()
+    public static function setters(): array
     {
         return self::$setters;
     }
@@ -216,7 +226,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return array
      */
-    public static function getters()
+    public static function getters(): array
     {
         return self::$getters;
     }
@@ -226,7 +236,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getModelName()
+    public function getModelName(): array
     {
         return self::$openAPIModelName;
     }
@@ -261,6 +271,9 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchantCustomReference'] = $data['merchantCustomReference'] ?? null;
         $this->container['merchant'] = $data['merchant'] ?? null;
         $this->container['self'] = $data['self'] ?? null;
+        $this->container['transaction_id'] = $data['transaction_id'] ?? null;
+        $this->container['transaction'] = $data['transaction'] ?? null;
+        $this->container['paymentMethod'] = $data['paymentMethod'] ?? null;
     }
 
     /**
@@ -305,7 +318,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return bool True if all properties are valid
      */
-    public function valid()
+    public function valid(): bool
     {
         return count($this->listInvalidProperties()) === 0;
     }
@@ -316,7 +329,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['id'];
     }
@@ -328,7 +341,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setId($id)
+    public function setId($id): self
     {
         $this->container['id'] = $id;
 
@@ -340,7 +353,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['amount'];
     }
@@ -352,7 +365,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setAmount($amount)
+    public function setAmount($amount): self
     {
         $this->container['amount'] = $amount;
 
@@ -364,7 +377,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float
      */
-    public function getCapturedAmount()
+    public function getCapturedAmount(): float
     {
         return $this->container['capturedAmount'];
     }
@@ -376,7 +389,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCapturedAmount($capturedAmount)
+    public function setCapturedAmount($capturedAmount): self
     {
         $this->container['capturedAmount'] = $capturedAmount;
 
@@ -389,7 +402,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->container['currencyCode'];
     }
@@ -401,7 +414,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCurrencyCode($currencyCode)
+    public function setCurrencyCode($currencyCode): self
     {
         $this->container['currencyCode'] = $currencyCode;
 
@@ -411,9 +424,9 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets products
      *
-     * @return \RPay\POK\PaymentsSdk\Model\SdkOrderProduct[]|null
+     * @return SdkOrderProduct[]|null
      */
-    public function getProducts()
+    public function getProducts(): ?array
     {
         return $this->container['products'];
     }
@@ -421,11 +434,11 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets products
      *
-     * @param \RPay\POK\PaymentsSdk\Model\SdkOrderProduct[]|null $products products
+     * @param SdkOrderProduct[]|null $products products
      *
      * @return self
      */
-    public function setProducts($products)
+    public function setProducts($products): self
     {
         $this->container['products'] = $products;
 
@@ -437,7 +450,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float|null
      */
-    public function getShippingCost()
+    public function getShippingCost(): ?float
     {
         return $this->container['shippingCost'];
     }
@@ -449,11 +462,11 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setShippingCost($shippingCost)
+    public function setShippingCost($shippingCost): self
     {
 
         if (!is_null($shippingCost) && ($shippingCost < 0)) {
-            throw new \InvalidArgumentException('invalid value for $shippingCost when calling SdkOrder., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid value for $shippingCost when calling MerchantOrder., must be bigger than or equal to 0.');
         }
 
         $this->container['shippingCost'] = $shippingCost;
@@ -466,7 +479,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return float
      */
-    public function getFinalAmount()
+    public function getFinalAmount(): float
     {
         return $this->container['finalAmount'];
     }
@@ -478,7 +491,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setFinalAmount($finalAmount)
+    public function setFinalAmount($finalAmount): self
     {
         $this->container['finalAmount'] = $finalAmount;
 
@@ -490,7 +503,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): \DateTime
     {
         return $this->container['createdAt'];
     }
@@ -502,7 +515,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt): self
     {
         $this->container['createdAt'] = $createdAt;
 
@@ -514,7 +527,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return \DateTime
      */
-    public function getExpiresAt()
+    public function getExpiresAt(): \DateTime
     {
         return $this->container['expiresAt'];
     }
@@ -526,7 +539,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return self
      */
-    public function setExpiresAt($expiresAt)
+    public function setExpiresAt($expiresAt): self
     {
         $this->container['expiresAt'] = $expiresAt;
 
@@ -653,12 +666,29 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return $this;
     }
 
+    public function getTransactionId(): string
+    {
+        return $this->container['transaction_id'];
+    }
+
+    public function setTransactionId(?string  $transactionId): self
+    {
+        $this->container['transaction_id'] = $transactionId;
+
+        return $this;
+    }
+
+    public function getTransaction(): ?TransactionOrder
+    {
+        return $this->container['transaction'];
+    }
+
     /**
      * Gets self
      *
-     * @return \RPay\POK\PaymentsSdk\Model\SdkOrderSelf|null
+     * @return ?self
      */
-    public function getSelf()
+    public function getSelf(): ?self
     {
         return $this->container['self'];
     }
@@ -666,11 +696,11 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets self
      *
-     * @param \RPay\POK\PaymentsSdk\Model\SdkOrderSelf|null $self self
      *
+     * @param MerchantOrder|null $self
      * @return self
      */
-    public function setSelf($self)
+    public function setSelf(?self $self): self
     {
         $this->container['self'] = $self;
 
