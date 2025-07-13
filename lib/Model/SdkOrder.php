@@ -165,6 +165,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         'merchantCustomReference' => 'setMerchantCustomReference',
         'merchant' => 'setMerchant',
         'self' => 'setSelf',
+        'paymentMethod' => 'setPaymentMethod',
     ];
 
     /**
