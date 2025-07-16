@@ -708,7 +708,7 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getPaymentMethod(): string
+    public function getPaymentMethod(): ?string
     {
         return $this->container['paymentMethod'];
     }
@@ -813,7 +813,7 @@ class MerchantOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         return $this;
     }
 
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->container['transaction_id'];
     }

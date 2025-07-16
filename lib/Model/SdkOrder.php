@@ -765,6 +765,11 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    public function toArray(): array
+    {
+        return json_decode($this->toHeaderValue(), true);
+    }
 }
 
 
