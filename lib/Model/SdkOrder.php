@@ -262,6 +262,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['merchantCustomReference'] = $data['merchantCustomReference'] ?? null;
         $this->container['merchant'] = $data['merchant'] ?? null;
         $this->container['self'] = $data['self'] ?? null;
+        $this->container['paymentMethod'] = $data['paymentMethod'] ?? null;
     }
 
     /**
@@ -549,7 +550,7 @@ class SdkOrder implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @return string|null
      */
-    public function getPaymentMethod(): string
+    public function getPaymentMethod(): ?string
     {
         return $this->container['paymentMethod'];
     }
